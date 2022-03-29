@@ -1,3 +1,7 @@
+package edu.ucalgary.ensf409;
+
+
+
 public class Recipient {
     private final int clientID;
     private final String clientType;
@@ -44,7 +48,7 @@ public class Recipient {
                 this.CALORIES = 750;
                 break;
                 default:
-                    throw new IllegalArgumentException("Recipient does not exist. Please enter another value");
+                    throw new IllegalArgumentException("edu.ucalgary.ensf409.Recipient does not exist. Please enter another value");
 
 
 
