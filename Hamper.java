@@ -1,5 +1,8 @@
 import java.util.ArrayList;
 
+import edu.ucalgary.ensf409.Food;
+import edu.ucalgary.ensf409.Recipient;
+
 package edu.ucalgary.ensf409;
 
 public class Hamper {
@@ -8,8 +11,8 @@ public class Hamper {
     private ArrayList<Food> foods;
 
     public Hamper(){
-        recipients = null;
-        foods = null;
+        recipients = new ArrayList<Recipient>();
+        foods = new ArrayList<Food>();
     }
 
     public ArrayList<Recipient> getRecipients() {
