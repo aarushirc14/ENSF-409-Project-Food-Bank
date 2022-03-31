@@ -2,8 +2,6 @@
 
 import org.junit.Test;
 
-import edu.ucalgary.ensf409.Food;
-
 import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
