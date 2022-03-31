@@ -18,6 +18,6 @@ public class AvailableFood {
         this.availableFood = availableFood;
     }
     public void removeFoodItem(Food foodItem){
-        this.availableFood.remove(usedFood);
+        this.availableFood.remove(foodItem);
     }
 }
