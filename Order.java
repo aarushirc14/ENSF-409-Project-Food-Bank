@@ -6,7 +6,7 @@ public class Order{
     private static boolean orderFormCreated;
     public Order(){
         this.hampers=new ArrayList<Hamper>();
-        this.sorderFormCreated=false;
+        this.orderFormCreated=false;
 
 
     }
