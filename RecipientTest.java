@@ -6,43 +6,43 @@ import static org.junit.Assert.assertEquals;
 public class RecipientTest {
 
     @Test
-    public void testClientType(){
+    public void testClientType(){ // Test the client type/gender
         Recipient test = new Recipient(0);
         assertEquals("Adult Male", test.getClientType());
     }
 
     @Test
-    public void testWholeGrain(){
+    public void testWholeGrain(){ // Test the wholegrains needed for adult female
         Recipient test = new Recipient(1);
-        assertEquals(20, test.getWholeGrains());
+        assertEquals(16, test.getWholeGrains());
     }
 
     @Test
-    public void testProtein(){
+    public void testProtein(){ // Test the protein for Child over 8
         Recipient test = new Recipient(2);
-        assertEquals(20, test.getProtein());
+        assertEquals(31, test.getProtein());
     }
 
     @Test
-    public void testFruitsVeg(){
+    public void testFruitsVeg(){ // Test the FruitsVeg for child under 8
         Recipient test = new Recipient(3);
-        assertEquals(40, test.getFruitsVeggies());
+        assertEquals(33, test.getFruitsVeggies());
     }
 
     @Test
-    public void testOther(){
+    public void testOther(){ // Test the other for adult male
         Recipient test = new Recipient(0);
-        assertEquals(40, test.getOther());
+        assertEquals(30, test.getOther());
     }
 
     @Test
-    public void testCalories(){
+    public void testCalories(){ //Test the calories needed for adult male
         Recipient test = new Recipient(0);
-        assertEquals(2000, test.getCalories());
+        assertEquals(2500, test.getCalories());
     }
 
     @Test (expected = IllegalArgumentException.class)
-    public void testIncorrectArgument(){
+    public void testIncorrectArgument(){ // Test if whether the recipient will give a IllegalArgumentException if given the wrong recipientID
         Recipient test = new Recipient(5);
 
     }
