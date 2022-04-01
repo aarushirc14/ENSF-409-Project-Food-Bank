@@ -27,26 +27,50 @@ public class OrderTest {
         actualHamper.setFoods(expectedFoods);
         actualHamper.setRecepients(expectedRecipients);
         Order actual =new Order();
+        expectedHamper.add(actualHamper);
         actual.addNewHamper(actualHamper);
         assertEquals("addNewHamper() does not add hamper properly",
         expectedHamper,actual.getHampers());
-        
-
-
-        
-
 
     }
     @Test
     public void testGetHampers(){
+         expectedHamper.clear();
+        Hamper actualHamper=new Hamper();
+        expectedRecipients.clear();
+        expectedRecipients.add(new Recepient(0));
+        expectedRecipients.add(new Recepient(1));
+        expectedFoods.clear();
+        expectedFoods.add(new Food(0023));
+        actualHamper.setFoods(expectedFoods);
+        actualHamper.setRecepients(expectedRecipients);
+        Order actual =new Order();
+        expectedHamper.add(actualHamper);
+        actual.setHampers(actualHamper);
+        assertEquals("getHampers() does not return hampers properly",
+        expectedHamper,actual.getHampers());
+        
 
     }
     @Test
     public void testSetOrderFormStatus(){
+        boolean testStatus=true;
+        Order actual =new Order();
+        actual.setOrderFormStatus(testStatus);
+        assertEquals("setOrderFormStatus() does not set Order Form Status properly",
+        testStatus,actual.getOrderFormStatus());
 
     }
     @Test
     public void testCalculateFoodDistribution(){
+        expectedFoods.clear();
+        Food g= new Food(0023);
+        expectedFoods.add(g);
+         Order actual =new Order();
+        actual.calculateFoodDistribution(testStatus);
+        
+        
+        
 
     }
     @Test
