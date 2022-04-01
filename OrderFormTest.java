@@ -10,7 +10,7 @@ public class OrderFormTest {
     @Test
     public void testOrderFormCreated(){ // Test whether the orderFormCreated value gets changed when orderform object is created
         OrderForm test = new OrderForm();
-        assertEquals(true, test.getOrderFormCreated());
+        assertEquals("Order form boolean value was not changed",true, test.getOrderFormCreated());
     }
 
     @Test(expected = IOException.class)

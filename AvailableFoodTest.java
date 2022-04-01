@@ -9,7 +9,7 @@ public class AvailableFoodTest {
     @Test
     public void testAvailableFoods(){ // Testing for ID when taken from SQL
         AvailableFood test = new AvailableFood();
-        assertEquals(1, test.getAvailableFoods().get(0).getItemID());
+        assertEquals("FoodID was not correct",1, test.getAvailableFoods().get(0).getItemID());
     }
     @Test
     public void setAvailableFood(){ // Test whether the values will be set to equal each other
@@ -18,7 +18,7 @@ public class AvailableFoodTest {
         Food realFood = new Food(2);
         realVal.add(realFood);
         test.setAvailableFoods(realVal);
-        assertEquals(realVal.get(0).getItemID(), test.getAvailableFoods().get(0).getItemID());
+        assertEquals("AvailableFood was not correctly set",realVal.get(0).getItemID(), test.getAvailableFoods().get(0).getItemID());
     }
 
     @Test
@@ -27,6 +27,6 @@ public class AvailableFoodTest {
         Food delFood = new Food(3);
         int itemID = delFood.getItemID();
         test.removeFoodItem(delFood);
-        assertEquals("Apple, dozen", test.getAvailableFoods().get(2).getName());
+        assertEquals("Item was not correctly removed","Apple, dozen", test.getAvailableFoods().get(2).getName());
     }
 }
