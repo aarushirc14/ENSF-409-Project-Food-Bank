@@ -7,25 +7,26 @@ import static org.junit.Assert.assertEquals;
 public class AvailableFoodTest {
 
     @Test
-    public void testAvailableFoods(){
+    public void testAvailableFoods(){ // Testing for ID when taken from SQL
         AvailableFood test = new AvailableFood();
-        assertEquals(0, test.getAvailableFoods().get(0).getItemID());
+        assertEquals(1, test.getAvailableFoods().get(0).getItemID());
     }
     @Test
-    public void setAvailableFood(){
+    public void setAvailableFood(){ // Test whether the values will be set to equal each other
         AvailableFood test = new AvailableFood();
         ArrayList<Food> realVal = new ArrayList<Food>();
         Food realFood = new Food(2);
+        realVal.add(realFood);
         test.setAvailableFoods(realVal);
         assertEquals(realVal.get(0).getItemID(), test.getAvailableFoods().get(0).getItemID());
     }
 
     @Test
-    public void testRemoveFoodItem(){
+    public void testRemoveFoodItem(){ // Test whether the values actually gets removed or not from the sql
         AvailableFood test = new AvailableFood();
-        Food delFood = new Food(0);
+        Food delFood = new Food(3);
         int itemID = delFood.getItemID();
         test.removeFoodItem(delFood);
-        assertEquals(itemID, test.getAvailableFoods().get(0).getItemID());
+        assertEquals("Apple, dozen", test.getAvailableFoods().get(2).getName());
     }
 }
