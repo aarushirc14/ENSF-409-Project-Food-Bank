@@ -75,6 +75,14 @@ public class OrderTest {
     }
     @Test
     public void testCreateOrderForm(){
+        OrderForm g=new OrderForm(expectedHamper);
+         Order actual =new Order();
+        actual.setHamper(expectedHamper);
+        actual.createOrderForm();
+        assertEquals("createOrderForm() does not create Order Form properly",
+        g,actual.getOrderForm());
+        
+        
 
     }
 
