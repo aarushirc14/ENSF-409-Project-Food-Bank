@@ -11,7 +11,7 @@ public class OrderForm extends Order{
         String finalStringOut = "";
         try(FileWriter writer = new FileWriter(output)) {
 
-            for(int i = 0; i < getHampers().size; i++) {
+            for(int i = 0; i < getHampers().size(); i++) {
                 finalStringOut += "Hamper " + i + ": " + getHampers().get(i).recipientsToString() + "\n";
                 finalStringOut += "Hamper " + i + " items:\n" + getHampers().get(i).foodsToString() + "\n";
             }
