@@ -41,7 +41,7 @@ public class Hamper {
         return output;
     }
 
-    public String recipeintsToString() {
+    public String recipientsToString() {
         String output = "";
         int maleCount = 0;
         int femaleCount = 0;
