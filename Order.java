@@ -17,7 +17,7 @@ public class Order{
     public ArrayList<Hamper> getHampers(){
         return this.hampers;
     }
-    public void setOrderFormStatus(boolean status){
+    public void setOrderFormCreated(boolean status){
         this.orderFormCreated=status;
     }
     public void calculateFoodDistribution(AvailableFood availableFood){
@@ -26,6 +26,9 @@ public class Order{
     public void createOrderForm(){
         OrderForm a=new OrderForm(this.hampers);
         this.orderFormCreated=true;
+    }
+    public void addRecipientToHamper(Hamper hamper, int recipientID) {
+        hamper.addNewRecipient(recipientID);
     }
 
 
