@@ -17,6 +17,46 @@ public class AccessFoodInventory{
     private Connection dbConnect;
     private ResultSet results;
 
+    //My additions
+    private int totalFoodItems;
+
+    public int getTotalFoodItems(){
+        try {
+            Statement myStmt = dbConnect.createStatement();
+            ResultSet results = myStmt.executeQuery("SELECT * FROM " + "available_food");
+            while(results.next()){
+                if(results.isLast()){
+                    this.totalFoodItems = results.getInt("ItemID");
+                }
+            }
+            myStmt.close();
+        }catch(SQLException e){
+
+        }
+        return this.totalFoodItems;
+    }
+
+    public String getSpecificFood(int itemID){
+        StringBuffer full = new StringBuffer();
+        try {
+            Statement myStmt = dbConnect.createStatement();
+            results = myStmt.executeQuery("SELECT * FROM " + "available_food");
+            while(results.next()){
+                if(results.getInt("ItemID") == itemID){
+                    full.append(results.getString("Name") + "/" + results.getString("GrainContent") + "/"
+                            + results.getString("FVContent") + "/" + results.getString("ProContent") + "/"
+                            + results.getString("Other") + "/" + results.getString("Calories"));
+                }
+            }
+            myStmt.close();
+        }catch(SQLException e){
+
+        }
+
+        return full.toString();
+    }
+
+
     public AccessFoodInventory(String url, String user, String pw){
 
         // Database URL
@@ -98,35 +138,6 @@ public class AccessFoodInventory{
         return full.toString();
     }
 
-    public void insertNewCompetitor(String id, String lName, String fName, int age, String instrument, String teacherID){
-
-        if(!validateTeacher(teacherID)){
-            throw new IllegalArgumentException("Student must have a registered teacher.");
-        }
-
-        if(age < 5 || age > 18){
-            throw new IllegalArgumentException("Student must be between the ages of 5 and 18.");
-        }
-        try {
-            String query = "INSERT INTO competitor (CompetitorID, LName, FName, Age, Instrument, TeacherID) VALUES (?,?,?,?,?,?)";
-            PreparedStatement myStmt = dbConnect.prepareStatement(query);
-
-            myStmt.setString(1, id);
-            myStmt.setString(2, lName);
-            myStmt.setString(3,fName);
-            myStmt.setString(4, Integer.toString(age));
-            myStmt.setString(5,instrument);
-            myStmt.setString(6,teacherID);
-            int rowCount = myStmt.executeUpdate();
-            System.out.println("Rows affected: " + rowCount);
-            myStmt.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-
-
-    }
 
     private boolean validateTeacher(String teacherID){
 
@@ -195,8 +206,9 @@ public class AccessFoodInventory{
         //1 mark - initializeConnection method must create a connection to the database, may not take in any arguments or return any values
         // Must throw an SQLException if connection cannot be made
         myJDBC.initializeConnection();
-        System.out.println(myJDBC.selectAllAvailableFood());
-        System.out.println(myJDBC.selectAllDailyClientNeeds());
+        String[] tmp = myJDBC.getSpecificFood(1).split(" ");
+        System.out.println(tmp[0]);
+
     }
 
 }
