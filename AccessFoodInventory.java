@@ -74,7 +74,7 @@ public class AccessFoodInventory{
         }
         return full.toString();
     }
-
+//Xian Wei Additions end
 
     public AccessFoodInventory(String url, String user, String pw){
 
@@ -214,7 +214,7 @@ public class AccessFoodInventory{
 
 
     }
-    
+
 }
 /*
     USE competition;
