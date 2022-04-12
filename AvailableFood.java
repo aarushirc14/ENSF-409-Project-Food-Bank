@@ -22,17 +22,17 @@ public class AvailableFood {
         this.availableFood = availableFood;
     }
     public void removeFoodItem(Food foodItem){
-        this.availableFood.remove(foodItem);
+        int counter = 0;
+        while(this.availableFood.iterator().hasNext() && counter < this.availableFood.size()){
+            if(foodItem.getName().equals(this.availableFood.get(counter).getName())){
+                this.availableFood.remove(counter);
+                break;
+            }
+            counter++;
+        }
+
     }
 
-//    public static void main(String[] args){
-//        AvailableFood tmp = new AvailableFood();
-//        int counter = 0;
-//        while(tmp.availableFood.listIterator().hasNext() && counter < tmp.getAvailableFoods().size()){
-//            System.out.println(tmp.availableFood.get(counter).getName());
-//                    counter++;
-//        }
-//    }
 }
 
 
