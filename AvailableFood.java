@@ -1,4 +1,4 @@
-
+//Xian Wei Additions start
 package edu.ucalgary.ensf409;
 
 import java.util.*;
@@ -23,6 +23,7 @@ public class AvailableFood {
     }
     public void removeFoodItem(Food foodItem){
         int counter = 0;
+        //checks over to find specific name and removes from arraylist when found
         while(this.availableFood.iterator().hasNext() && counter < this.availableFood.size()){
             if(foodItem.getName().equals(this.availableFood.get(counter).getName())){
                 this.availableFood.remove(counter);
@@ -34,5 +35,5 @@ public class AvailableFood {
     }
 
 }
-
+//Xian Wei Additions end
 

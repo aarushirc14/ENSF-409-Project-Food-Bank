@@ -17,7 +17,7 @@ public class AccessFoodInventory{
     private Connection dbConnect;
     private ResultSet results;
 
-    //My additions
+    //Xian Wei Low additions
     private int totalFoodItems;
 
     public int getTotalFoodItems(){
@@ -53,6 +53,25 @@ public class AccessFoodInventory{
 
         }
 
+        return full.toString();
+    }
+    public String getSpecificRecipient(int recipientID){
+        StringBuffer full = new StringBuffer();
+        try {
+
+            Statement myStmt = dbConnect.createStatement();
+            results = myStmt.executeQuery("SELECT * FROM " + "daily_client_needs");
+            while(results.next()){
+                if(results.getInt("ClientID") == recipientID){
+                    full.append(results.getString("Client") + "/" + results.getString("WholeGrains") + "/"
+                            + results.getString("FruitVeggies") + "/" + results.getString("Protein") + "/"
+                            + results.getString("Other") + "/" + results.getString("Calories"));
+                }
+            }
+            myStmt.close();
+        }catch(SQLException e){
+
+        }
         return full.toString();
     }
 
@@ -195,22 +214,7 @@ public class AccessFoodInventory{
 
 
     }
-    public static void main(String[] args) {
-
-        // Remember that each time you execute the given .sql file, the database will be reset.
-        // You should reset the database before each test run of your code.
-
-        //Use the following account information: Username = student, Password = ensf
-        AccessFoodInventory myJDBC = new AccessFoodInventory("jdbc:mysql://localhost/food_inventory", "student", "ensf");
-
-        //1 mark - initializeConnection method must create a connection to the database, may not take in any arguments or return any values
-        // Must throw an SQLException if connection cannot be made
-        myJDBC.initializeConnection();
-        String[] tmp = myJDBC.getSpecificFood(1).split(" ");
-        System.out.println(tmp[0]);
-
-    }
-
+    
 }
 /*
     USE competition;

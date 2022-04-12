@@ -9,11 +9,8 @@ public class Food {
     private final int PRO_CONTENT;
     private final int OTHER_CONTENT;
     private final int CALORIES;
-
+    //Xian Wei Additions start
     private AccessFoodInventory access = new AccessFoodInventory("jdbc:mysql://localhost/food_inventory", "student", "ensf");
-
-    // setters are not required since all attributes are final and
-    // read from the data base
 
     public Food(int ITEM_ID) {
         this.ITEM_ID = ITEM_ID;
@@ -28,7 +25,7 @@ public class Food {
         this.CALORIES = Integer.parseInt(tmp[5]);
         access.close();
     }
-
+//Xian Wei Additions end
     public int getItemID() {
         return this.ITEM_ID;
     }
