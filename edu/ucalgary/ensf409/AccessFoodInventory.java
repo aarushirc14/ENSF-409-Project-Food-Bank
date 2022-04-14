@@ -74,6 +74,27 @@ public class AccessFoodInventory{
         }
         return full.toString();
     }
+
+    public void deleteAvailableFood(String id){
+        try {
+            String query = "DELETE FROM available_food WHERE ItemID = ?";
+            PreparedStatement myStmt = dbConnect.prepareStatement(query);
+
+            myStmt.setString(1,id);
+            int rowCount = myStmt.executeUpdate();
+            myStmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+    public void dbConnectClose(){
+        try {
+            dbConnect.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 //Xian Wei Additions end
 
     public AccessFoodInventory(String url, String user, String pw){
@@ -95,7 +116,6 @@ public class AccessFoodInventory{
             e.printStackTrace();
         }
 
-/***********ADD CODE HERE***********/
 
     }
 
@@ -114,7 +134,6 @@ public class AccessFoodInventory{
 
     public String selectAllAvailableFood(){
 
-/***********ADD CODE HERE***********/
         StringBuffer full = new StringBuffer();
         try {
 
@@ -136,7 +155,6 @@ public class AccessFoodInventory{
     }
     public String selectAllDailyClientNeeds(){
 
-/***********ADD CODE HERE***********/
         StringBuffer full = new StringBuffer();
         try {
 
@@ -155,52 +173,6 @@ public class AccessFoodInventory{
         }
 
         return full.toString();
-    }
-
-
-    private boolean validateTeacher(String teacherID){
-
-        boolean validTeacher = false;
-
-        try {
-            Statement myStmt = dbConnect.createStatement();
-
-            // Execute SQL query
-            results = myStmt.executeQuery("SELECT * FROM teacher");
-
-            // Process the results set
-            while (results.next()){
-                if(results.getString("TeacherID").equals(teacherID))
-                    validTeacher = true;
-            }
-
-            myStmt.close();
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-
-        return validTeacher;
-
-    }
-
-
-    public void deleteCompetitor(String id){
-
-
-        try {
-            String query = "DELETE FROM competitor WHERE CompetitorID = ?";
-            PreparedStatement myStmt = dbConnect.prepareStatement(query);
-
-            myStmt.setString(1,id);
-            int rowCount = myStmt.executeUpdate();
-            System.out.println("Rows affected: " + rowCount);
-            myStmt.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-
-
     }
 
     public void close() {
