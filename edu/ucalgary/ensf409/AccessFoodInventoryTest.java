@@ -1,8 +1,6 @@
 package edu.ucalgary.ensf409;
 import org.junit.Test;
 
-import java.io.IOException;
-import java.sql.*;
 import static org.junit.Assert.assertEquals;
 
 public class AccessFoodInventoryTest {
