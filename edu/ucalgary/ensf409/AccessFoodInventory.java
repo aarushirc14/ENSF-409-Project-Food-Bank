@@ -1,9 +1,3 @@
-/*
-Copyright Ann Barcomb and Emily Marasco, 2022
-Licensed under GPL v3
-See LICENSE.txt for more information.
-*/
-
 package edu.ucalgary.ensf409;
 
 import java.sql.*;
@@ -81,7 +75,6 @@ public class AccessFoodInventory{
             PreparedStatement myStmt = dbConnect.prepareStatement(query);
 
             myStmt.setString(1,id);
-            int rowCount = myStmt.executeUpdate();
             myStmt.close();
         } catch (SQLException e) {
             e.printStackTrace();
