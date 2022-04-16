@@ -98,7 +98,7 @@ public class HamperTest {
         actualHamper.addNewRecipient(3);
         actualHamper.addNewRecipient(3);
         assertEquals("recipientsToString() did not return correctly formatted string",
-                    expectedOutput, actualHamper.recipeintsToString());
+                    expectedOutput, actualHamper.recipientsToString());
     }
 
 
