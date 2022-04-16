@@ -10,10 +10,11 @@ public class Recipient {
     private final int PROTEIN;
     private final int OTHER;
     private final int CALORIES;
-    private AccessFoodInventory access = new AccessFoodInventory("jdbc:mysql://localhost/food_inventory", "student", "ensf");
+    private AccessFoodInventory access = new AccessFoodInventory("jdbc:mysql://localhost/food_inventory", "student",
+            "ensf");
 
-    public Recipient(int recipientID){
-        if(recipientID > 4 || recipientID < 1){
+    public Recipient(int recipientID) {
+        if (recipientID > 4 || recipientID < 1) {
             throw new IllegalArgumentException("Recipient does not exist. Please enter another value");
         }
         this.CLIENTID = recipientID;
@@ -28,26 +29,33 @@ public class Recipient {
         access.close();
     }
 
-    public int getClientID(){
+    public int getClientID() {
         return this.CLIENTID;
     }
-    public String getClientType(){
+
+    public String getClientType() {
         return this.CLIENTTYPE;
     }
-    public int getWholeGrains(){
-        return this.WHOLEGRAINS;
+
+    // convert contents from percentages to calories
+    public int getWholeGrains() {
+        return (this.WHOLEGRAINS / 100) * this.CALORIES;
     }
-    public int getFruitsVeggies(){
-        return this.FRUITSVEGGIES;
+
+    public int getFruitsVeggies() {
+        return (this.FRUITSVEGGIES / 100) * this.CALORIES;
     }
-    public int getProtein(){
-        return this.PROTEIN;
+
+    public int getProtein() {
+        return (this.PROTEIN / 100) * this.CALORIES;
     }
-    public int getOther(){
-        return this.OTHER;
+
+    public int getOther() {
+        return (this.OTHER / 100) * this.CALORIES;
     }
-    public int getCalories(){
+
+    public int getCalories() {
         return this.CALORIES;
     }
 }
-//Xian Wei Additions end
+// Xian Wei Additions end
