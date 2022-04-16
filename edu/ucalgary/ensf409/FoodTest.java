@@ -19,7 +19,7 @@ public class FoodTest {
 
     @Test
     public void testGetItemID() {
-        String ACTUAL_ITEM_ID = testObject1.getItemID();
+        int ACTUAL_ITEM_ID = testObject1.getItemID();
         assertEquals("Incorrect information stored/returned for food Item ID.", EXPECTED_ITEM_ID, ACTUAL_ITEM_ID);
     }
 
@@ -31,35 +31,35 @@ public class FoodTest {
 
     @Test
     public void testGetGrainContent() {
-        String ACTUAL_GRAIN_CONTENT = testObject1.getGrainContent();
+        int ACTUAL_GRAIN_CONTENT = testObject1.getGrainContent();
         assertEquals("Incorrect information stored/returned for grain content.", EXPECTED_GRAIN_CONTENT,
                 ACTUAL_GRAIN_CONTENT);
     }
 
     @Test
     public void testGetFVContent() {
-        String ACTUAL_FV_CONTENT = testObject1.getFVContent();
+        int ACTUAL_FV_CONTENT = testObject1.getFVContent();
         assertEquals("Incorrect information stored/returned for fruits/veggies content.", EXPECTED_FV_CONTENT,
                 ACTUAL_FV_CONTENT);
     }
 
     @Test
     public void testGetProContent() {
-        String ACTUAL_PRO_CONTENT = testObject1.getProContent();
+        int ACTUAL_PRO_CONTENT = testObject1.getProContent();
         assertEquals("Incorrect information stored/returned for protein content.", EXPECTED_PRO_CONTENT,
                 ACTUAL_PRO_CONTENT);
     }
 
     @Test
     public void testGetOtherContent() {
-        String ACTUAL_OTHER_CONTENT = testObject1.getOtherContent();
-        assertEquals("Incorrect information stored/returned for other content.", EXPECTED_OTHER_CONTENT,
+        int ACTUAL_OTHER_CONTENT = testObject1.getOtherContent();
+        assertEquals("Incorrect information stored/returned for other content.", EXPECTED_OTHER,
                 ACTUAL_OTHER_CONTENT);
     }
 
     @Test
     public void testGetCalories() {
-        String ACTUAL_CALORIES = testObject1.getCalories();
+        int ACTUAL_CALORIES = testObject1.getCalories();
         assertEquals("Incorrect information stored/returned for calories.", EXPECTED_CALORIES,
                 ACTUAL_CALORIES);
     }

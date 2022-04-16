@@ -21,12 +21,12 @@ public class OrderTest {
         expectedHamper.clear();
         Hamper actualHamper=new Hamper();
         expectedRecipients.clear();
-        expectedRecipients.add(new Recepient(0));
-        expectedRecipients.add(new Recepient(1));
+        expectedRecipients.add(new Recipient(0));
+        expectedRecipients.add(new Recipient(1));
         expectedFoods.clear();
         expectedFoods.add(new Food(0023));
         actualHamper.setFoods(expectedFoods);
-        actualHamper.setRecepients(expectedRecipients);
+        actualHamper.setRecipients(expectedRecipients);
         Order actual =new Order();
         expectedHamper.add(actualHamper);
         actual.addNewHamper(actualHamper);
@@ -37,17 +37,19 @@ public class OrderTest {
     @Test
     public void testGetHampers(){
          expectedHamper.clear();
+        ArrayList<Hamper> actualHampers = new ArrayList<Hamper>();
         Hamper actualHamper=new Hamper();
         expectedRecipients.clear();
-        expectedRecipients.add(new Recepient(0));
-        expectedRecipients.add(new Recepient(1));
+        expectedRecipients.add(new Recipient(0));
+        expectedRecipients.add(new Recipient(1));
         expectedFoods.clear();
         expectedFoods.add(new Food(0023));
         actualHamper.setFoods(expectedFoods);
-        actualHamper.setRecepients(expectedRecipients);
+        actualHamper.setRecipients(expectedRecipients);
+        actualHampers.add(actualHamper);
         Order actual =new Order();
         expectedHamper.add(actualHamper);
-        actual.setHampers(actualHamper);
+        actual.setHampers(actualHampers);
         assertEquals("getHampers() does not return hampers properly",
         expectedHamper,actual.getHampers());
         
@@ -57,9 +59,9 @@ public class OrderTest {
     public void testSetOrderFormStatus(){
         boolean testStatus=true;
         Order actual =new Order();
-        actual.setOrderFormStatus(testStatus);
-        assertEquals("setOrderFormStatus() does not set Order Form Status properly",
-        testStatus,actual.getOrderFormStatus());
+        actual.setOrderFormCreated(testStatus);
+        assertEquals("setOrderFormCreated() does not set Order Form Status properly",
+        testStatus,actual.getOrderFormCreated());
 
     }
     @Test
@@ -69,22 +71,6 @@ public class OrderTest {
         expectedFoods.add(g);
          Order actual =new Order();
         actual.calculateFoodDistribution(testStatus);
-        
-        
-        
-
-    }
-    @Test
-    public void testCreateOrderForm(){
-        OrderForm g=new OrderForm(expectedHamper);
-         Order actual =new Order();
-        actual.setHamper(expectedHamper);
-        actual.createOrderForm();
-        assertEquals("createOrderForm() does not create Order Form properly",
-        g,actual.getOrderForm());
-        
-        
-
     }
 
 }
