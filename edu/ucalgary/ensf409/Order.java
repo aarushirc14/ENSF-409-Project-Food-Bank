@@ -4,19 +4,23 @@ import java.util.*;
 
 public class Order {
     private ArrayList<Hamper> hampers;
+    private static boolean orderFormStatus;
 
     public Order() {
         this.hampers = new ArrayList<Hamper>();
 
     }
 
-    public void addNewHamper() {
-        hampers.add(new Hamper());
-
+    public void addNewHamper(Hamper hamper) {
+        hampers.add(hamper);
     }
 
     public ArrayList<Hamper> getHampers() {
         return this.hampers;
+    }
+
+    public void setHampers(ArrayList<Hamper> hampers){
+        this.hampers = hampers;
     }
 
     public ArrayList<String> calculateFoodDistribution(Recipient recipient, AvailableFood availableFood) {
@@ -61,6 +65,14 @@ public class Order {
 
     public void addRecipientToHamper(Hamper hamper, int recipientID) {
         hamper.addNewRecipient(recipientID);
+    }
+
+    public boolean getOrderFormCreated(){
+        return orderFormStatus;
+    }
+
+    public void setOrderFormCreated(boolean status){
+        orderFormStatus = true;
     }
 
 }

@@ -12,7 +12,7 @@ public class OrderForm extends Order{
         String finalStringOut = "";
         try(FileWriter writer = new FileWriter(output)) {
 
-            for(int i = 0; i < getHampers().size; i++) {
+            for(int i = 0; i < getHampers().size(); i++) {
                 finalStringOut += "Hamper " + i + ": " + getHampers().get(i).recipientsToString() + "\n";
                 finalStringOut += "Hamper " + i + " items:\n" + getHampers().get(i).foodsToString() + "\n";
             }
@@ -27,9 +27,9 @@ public class OrderForm extends Order{
     public void updateDataBase() throws IOException{
         try {
             access.initializeConnection();
-            for (int i = 0; i < getHampers().size; i++) {
-                for (int j = 0; j < getHampers().get(i).getFoods().size; j++) {
-                    access.deleteAvailableFood(getHampers().get(i).getFoods().get(j).getItemID());
+            for (int i = 0; i < getHampers().size(); i++) {
+                for (int j = 0; j < getHampers().get(i).getFoods().size(); j++) {
+                    access.deleteAvailableFood(String.valueOf(getHampers().get(i).getFoods().get(j).getItemID()));
                 }
 
             }
