@@ -1,4 +1,4 @@
-//Xian Wei Additions start
+
 
 package edu.ucalgary.ensf409;
 
@@ -61,4 +61,3 @@ public class Recipient {
         return this.CALORIES;
     }
 }
-// Xian Wei Additions end
