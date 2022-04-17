@@ -17,11 +17,11 @@ public class OrderForm extends Order{
                 finalStringOut += "Hamper " + i + " items:\n" + order.getHampers().get(i).foodsToString() + "\n";
             }
             writer.write(finalStringOut);
-            // setOrderFormCreated(true);
+            setOrderFormCreated(true);
         }
         catch(IOException e){
             System.out.println("Could not write information into file");
-            // setOrderFormCreated(false);
+             setOrderFormCreated(false);
         }
     }
     public void updateDataBase(Order order) throws IOException{
