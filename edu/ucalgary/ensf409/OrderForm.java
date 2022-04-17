@@ -29,9 +29,8 @@ public class OrderForm extends Order{
             access.initializeConnection();
             for (int i = 0; i < order.getHampers().size(); i++) {
                 for (int j = 0; j < order.getHampers().get(i).getFoods().size(); j++) {
-                    access.deleteAvailableFood(String.valueOf(getHampers().get(i).getFoods().get(j).getItemID()));
+                    access.deleteAvailableFood(String.valueOf(order.getHampers().get(i).getFoods().get(j).getItemID()));
                 }
-
             }
             access.dbConnectClose();
         }catch(Exception ex ) {

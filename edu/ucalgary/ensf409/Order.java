@@ -12,8 +12,8 @@ public class Order {
 
     }
 
-    public void addNewHamper(Hamper hampers) {
-        this.hampers.add(new Hamper()); 
+    public void addNewHamper(Hamper hamper) {
+        this.hampers.add(hamper); 
 
     }
 
@@ -93,6 +93,7 @@ public class Order {
     public void addRecipientToHamper(Hamper hamper, int recipientID) {
         hamper.addNewRecipient(recipientID);
     }
+
     public void setOrderFormCreated(boolean status){
         this.orderFormCreated=status;
 
