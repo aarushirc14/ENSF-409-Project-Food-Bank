@@ -10,16 +10,15 @@ public class Order {
 
     }
 
-    public void addNewHamper() {
-        hampers.add(new Hamper());
-
+    public void addNewHamper(Hamper hamper) {
+        hampers.add(hamper);
     }
 
     public ArrayList<Hamper> getHampers() {
         return this.hampers;
     }
 
-    public ArrayList<String> calculateFoodDistribution(Hamper hamper, AvailableFood availableFood) {
+    public void calculateFoodDistribution(Hamper hamper, AvailableFood availableFood) {
         ArrayList<Food> foodData = availableFood.getAvailableFoods();
         ArrayList<Recipient> allRec = new ArrayList<>();
         allRec = hamper.getRecipients();
@@ -40,7 +39,7 @@ public class Order {
         System.out.println("Required fv " + allFvCal);
         System.out.println("Required pro " + allProCal);
         System.out.println("Required other " + allOtherCal);
-        ArrayList<String> calcFood = new ArrayList<>();
+        ArrayList<Food> calcFood = new ArrayList<>();
         int grainSum = 0;
         int fvSum = 0;
         int proSum = 0;
@@ -53,7 +52,7 @@ public class Order {
 
             if (grainSum <= allGrainCal || fvSum <= allFvCal || proSum <= allProCal ||
                     otherSum <= allOtherCal) {
-                if (!calcFood.contains(food.getName())) {
+                if (!calcFood.contains(food)) {
                     if (food.getGrainContent() <= (allGrainCal - grainSum)
                             && food.getFVContent() <= (allFvCal - fvSum)
                             && food.getProContent() <= (allProCal - proSum)
@@ -65,7 +64,7 @@ public class Order {
                         otherSum += food.getOtherContent();
                         calSum += food.getCalories();
 
-                        calcFood.add(food.getName());
+                        calcFood.add(food);
                         iter.remove();
                         // this remove will only delete from foodData NOT from inventory database
                     }
@@ -83,7 +82,7 @@ public class Order {
         System.out.println("Given protein " + proSum);
         System.out.println("Given other " + otherSum);
 
-        return calcFood;
+        hamper.setFoods(calcFood);
 
     }
 
