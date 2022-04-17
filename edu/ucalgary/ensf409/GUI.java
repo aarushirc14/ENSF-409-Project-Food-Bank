@@ -122,12 +122,13 @@ public class GUI extends JFrame implements ActionListener, MouseListener {
                 orderForm.updateDataBase(this.order);
             } catch(IOException e){
                 JOptionPane.showMessageDialog(this, "Unable to Update Database with needed food, order not completed");
-                this.order.setHampers(null);
+                this.order.getHampers().clear();
                 //throw new OrderCannotBeFilledException();
                 return;
             }
-            JOptionPane.showMessageDialog(this, "Order and OrderForm Successfully Created!");
-            this.order.setHampers(null);
+            JOptionPane.showMessageDialog(this, "Order Filled and OrderForm Successfully Created! This program can " + 
+                                        "now be closed or another order can be made.");
+            this.order.getHampers().clear();
         }
     }
 
