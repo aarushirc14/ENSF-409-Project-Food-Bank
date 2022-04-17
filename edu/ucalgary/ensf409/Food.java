@@ -11,7 +11,7 @@ public class Food {
     private final int PRO_CONTENT;
     private final int OTHER_CONTENT;
     private final int CALORIES;
-    // Xian Wei Additions start
+
     private AccessFoodInventory access = new AccessFoodInventory("jdbc:mysql://localhost/food_inventory", "student",
             "ensf");
 
@@ -38,7 +38,7 @@ public class Food {
         access.close();
     }
 
-    // Xian Wei Additions end
+
     public int getItemID() {
         return this.ITEM_ID;
     }
