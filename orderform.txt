@@ -1,3 +1,33 @@
-Hamper 0: 1 Adult Male, 1 Adult Female, 
+Hamper 0: 1 Adult Male, 1 Adult Female
 Hamper 0 items:
+1	Tomato Sauce, jar
+2	Tomato Sauce, jar
+3	Tomato Sauce, jar
+4	Apple, dozen
+5	Apple, dozen
+6	Granola Bar, box
+7	Chicken broth, can
+8	Baby carrots, pound
+9	Broccoli, 3 bunches
+10	Broccoli, 3 bunches
+11	Wheat bread, loaf
+12	Wheat bread, loaf
+14	Orange, dozen
+15	Orange, dozen
+16	Eggs, dozen
+17	Eggs, dozen
+18	Chicken breast, pound
+20	Tuna, six large cans
+21	Tuna, six small cans
+22	Tuna, six large cans
+23	Tuna, six small cans
+24	Cheddar cheese, pound
+27	Lettuce, 3 heads
+28	Bananas, bunch
+31	Ground beef, pound
+34	Avocado, dozen
+45	Tomatoes, 1 kg
+46	Tomatoes, 1 kg
+54	Soy protein, 1 kg
+130	Kimchi, 400 g
 

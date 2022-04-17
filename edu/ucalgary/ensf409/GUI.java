@@ -109,25 +109,25 @@ public class GUI extends JFrame implements ActionListener, MouseListener {
             for (int i = 0; i < numberChildUnderEight; i++){
                 hamper.addNewRecipient(4);
             }
-            order.addNewHamper(hamper);
+            this.order.addNewHamper(hamper);
             JOptionPane.showMessageDialog(this, "Hamper Successfully Added To Order!");
         }
         else {
-            OrderForm orderForm = new OrderForm(order);
             AvailableFood availableFood = new AvailableFood();
-            for(Hamper hamper : order.getHampers()){
+            for(Hamper hamper : this.order.getHampers()){
                 order.calculateFoodDistribution(hamper, availableFood);
             }
+            OrderForm orderForm = new OrderForm(this.order);
             try{
-                orderForm.updateDataBase(order);
+                orderForm.updateDataBase(this.order);
             } catch(IOException e){
                 JOptionPane.showMessageDialog(this, "Unable to Update Database with needed food, order not completed");
+                this.order.setHampers(null);
                 //throw new OrderCannotBeFilledException();
-                order = new Order();
                 return;
             }
             JOptionPane.showMessageDialog(this, "Order and OrderForm Successfully Created!");
-            order = new Order();
+            this.order.setHampers(null);
         }
     }
 

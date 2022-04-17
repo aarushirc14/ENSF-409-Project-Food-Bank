@@ -3,7 +3,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class OrderForm extends Order{
+public class OrderForm {
     private final static String OUTPUTFILENAME = "orderform.txt";
     private AccessFoodInventory access = new AccessFoodInventory("jdbc:mysql://localhost/food_inventory", "student", "ensf");
 
@@ -17,11 +17,11 @@ public class OrderForm extends Order{
                 finalStringOut += "Hamper " + i + " items:\n" + order.getHampers().get(i).foodsToString() + "\n";
             }
             writer.write(finalStringOut);
-            setOrderFormCreated(true);
+            // setOrderFormCreated(true);
         }
         catch(IOException e){
             System.out.println("Could not write information into file");
-             setOrderFormCreated(false);
+            //  setOrderFormCreated(false);
         }
     }
     public void updateDataBase(Order order) throws IOException{
@@ -29,9 +29,8 @@ public class OrderForm extends Order{
             access.initializeConnection();
             for (int i = 0; i < order.getHampers().size(); i++) {
                 for (int j = 0; j < order.getHampers().get(i).getFoods().size(); j++) {
-                    access.deleteAvailableFood(String.valueOf(getHampers().get(i).getFoods().get(j).getItemID()));
+                    access.deleteAvailableFood(String.valueOf(order.getHampers().get(i).getFoods().get(j).getItemID()));
                 }
-
             }
             access.dbConnectClose();
         }catch(Exception ex ) {
