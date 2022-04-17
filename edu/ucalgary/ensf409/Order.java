@@ -4,14 +4,17 @@ import java.util.*;
 
 public class Order {
     private ArrayList<Hamper> hampers;
+    private boolean orderFormCreated;
+    private AvailableFood availableFood;
 
     public Order() {
         this.hampers = new ArrayList<Hamper>();
 
     }
 
-    public void addNewHamper(Hamper hamper) {
-        hampers.add(hamper);
+    public void addNewHamper(Hamper hampers) {
+        this.hampers.add(new Hamper()); 
+
     }
 
     public ArrayList<Hamper> getHampers() {
@@ -83,11 +86,46 @@ public class Order {
         System.out.println("Given other " + otherSum);
 
         hamper.setFoods(calcFood);
-
     }
+
+    
 
     public void addRecipientToHamper(Hamper hamper, int recipientID) {
         hamper.addNewRecipient(recipientID);
     }
+    public void setOrderFormCreated(boolean status){
+        this.orderFormCreated=status;
+
+
+    }
+    public boolean getOrderFormCreated(){
+        return this.orderFormCreated;
+    }
+    public boolean createOrderForm(){
+        Order g= new Order();
+        g.setHampers(this.hampers);
+        g.setOrderFormCreated(this.orderFormCreated);
+        OrderForm neww= new OrderForm(g);
+        return true;
+    }
+    public void setHampers(ArrayList<Hamper> hampers){
+        this.hampers=hampers;
+
+    }
+    public void setAvailableFood(AvailableFood availableFood){
+        this.availableFood=availableFood;
+    }
+    public AvailableFood getAvailableFood(){
+        return this.availableFood;
+    }
+    public void updateAvailableFood(ArrayList<Food> food){
+        availableFood.setAvailableFoods(food);
+    }
+    public void addNewAvailableFood(Food newFood){
+        ArrayList<Food> g = this.availableFood.getAvailableFoods();
+        g.add(newFood);
+        this.availableFood.setAvailableFoods(g);
+    }
+
 
 }
