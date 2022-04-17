@@ -11,7 +11,6 @@ public class AccessFoodInventory{
     private Connection dbConnect;
     private ResultSet results;
 
-    //Xian Wei Low additions
     private int totalFoodItems;
 
     public int getTotalFoodItems(){
@@ -75,6 +74,7 @@ public class AccessFoodInventory{
             PreparedStatement myStmt = dbConnect.prepareStatement(query);
 
             myStmt.setString(1,id);
+            myStmt.executeUpdate();
             myStmt.close();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -88,7 +88,7 @@ public class AccessFoodInventory{
             e.printStackTrace();
         }
     }
-//Xian Wei Additions end
+
 
     public AccessFoodInventory(String url, String user, String pw){
 
@@ -181,9 +181,4 @@ public class AccessFoodInventory{
     }
 
 }
-/*
-    USE competition;
 
-SELECT * FROM competitor;
-
- */
