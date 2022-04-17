@@ -113,23 +113,21 @@ public class GUI extends JFrame implements ActionListener, MouseListener {
             JOptionPane.showMessageDialog(this, "Hamper Successfully Added To Order!");
         }
         else {
-            // order.calculateFoodDistribution();
-            // need to set up calculate food distribution such that it takes no arguments, 
-            // just uses the list of hampers and will get the list of avaiblefood in the method
-            // OrderForm orderForm = new OrderForm(order)
-            // Comment this and the above back in once calculatefooddistribution is functional
-            // Need to make orderform work such that if i give it an order it will print out 
-            // all the hampers to the orderform.txt file
-            OrderForm orderForm = new OrderForm();
+            OrderForm orderForm = new OrderForm(order);
+            AvailableFood availableFood = new AvailableFood();
+            for(Hamper hamper : order.getHampers()){
+                order.calculateFoodDistribution(hamper, availableFood);
+            }
             try{
-                orderForm.updateDataBase();
+                orderForm.updateDataBase(order);
             } catch(IOException e){
                 JOptionPane.showMessageDialog(this, "Unable to Update Database with needed food, order not completed");
-                Order order = new Order();
+                //throw new OrderCannotBeFilledException();
+                order = new Order();
                 return;
             }
             JOptionPane.showMessageDialog(this, "Order and OrderForm Successfully Created!");
-            Order order = new Order();
+            order = new Order();
         }
     }
 
