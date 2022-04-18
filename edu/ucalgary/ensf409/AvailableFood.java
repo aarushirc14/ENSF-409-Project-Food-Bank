@@ -1,4 +1,4 @@
-//Xian Wei Additions start
+
 package edu.ucalgary.ensf409;
 
 import java.util.*;
@@ -37,5 +37,5 @@ public class AvailableFood {
     }
 
 }
-//Xian Wei Additions end
+
 
