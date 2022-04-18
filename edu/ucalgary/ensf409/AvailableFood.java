@@ -10,10 +10,12 @@ public class AvailableFood {
     public AvailableFood(){
         access.initializeConnection();
         for(int i = 1; i < this.access.getTotalFoodItems() + 1; i++){
-            Food testFood = new Food(i);
-            this.availableFood.add(testFood);
+            if(!access.getSpecificFood(i).equals("")) {
+                Food testFood = new Food(i);
+                this.availableFood.add(testFood);
+            }
         }
-
+        access.dbConnectClose();
     }
     public ArrayList<Food> getAvailableFoods(){
         return this.availableFood;
