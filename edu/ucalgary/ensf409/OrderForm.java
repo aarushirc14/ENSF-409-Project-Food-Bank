@@ -13,8 +13,8 @@ public class OrderForm extends Order{
         try(FileWriter writer = new FileWriter(output)) {
 
             for(int i = 0; i < order.getHampers().size(); i++) {
-                finalStringOut += "Hamper " + i + ": " + order.getHampers().get(i).recipientsToString() + "\n";
-                finalStringOut += "Hamper " + i + " items:\n" + order.getHampers().get(i).foodsToString() + "\n";
+                finalStringOut += "Hamper " + (int)(i+1) + ": " + order.getHampers().get(i).recipientsToString() + "\n";
+                finalStringOut += "Hamper " + (int)(i+1) + " items:\n" + order.getHampers().get(i).foodsToString() + "\n";
             }
             writer.write(finalStringOut);
             setOrderFormCreated(true);

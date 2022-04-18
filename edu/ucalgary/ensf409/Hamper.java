@@ -54,10 +54,10 @@ public class Hamper {
             else if (recipients.get(i).getClientType().equals("Adult Female")){
                 femaleCount++;
             }
-            else if (recipients.get(i).getClientType().equals("Child Over 8")) {
+            else if (recipients.get(i).getClientType().equals("Child over 8")) {
                 childOverCount++;
             }
-            else if (recipients.get(i).getClientType().equals("Child Under 8")) {
+            else if (recipients.get(i).getClientType().equals("Child under 8")) {
                 childUnderCount++;
             }
         }

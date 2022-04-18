@@ -1,33 +1,44 @@
-Hamper 0: 1 Adult Male, 1 Adult Female
-Hamper 0 items:
-1	Tomato Sauce, jar
-2	Tomato Sauce, jar
-3	Tomato Sauce, jar
-4	Apple, dozen
-5	Apple, dozen
-6	Granola Bar, box
-7	Chicken broth, can
-8	Baby carrots, pound
-9	Broccoli, 3 bunches
-10	Broccoli, 3 bunches
-11	Wheat bread, loaf
-12	Wheat bread, loaf
-14	Orange, dozen
-15	Orange, dozen
-16	Eggs, dozen
-17	Eggs, dozen
-18	Chicken breast, pound
+Hamper 1: 1 Adult Male, 1 Adult Female, 1 Child over 8, 1 Child under 8
+Hamper 1 items:
+13	Wheat bread, loaf
+19	Pasta, dry, pound
 20	Tuna, six large cans
-21	Tuna, six small cans
 22	Tuna, six large cans
 23	Tuna, six small cans
 24	Cheddar cheese, pound
-27	Lettuce, 3 heads
-28	Bananas, bunch
+25	Cheddar cheese, pound
+26	Quinoa, pound
+29	Milk, 1%, 4 L
+30	Whole grain bread, loaf
 31	Ground beef, pound
+32	Ground beef, pound
+33	Ground beef, pound
 34	Avocado, dozen
-45	Tomatoes, 1 kg
-46	Tomatoes, 1 kg
-54	Soy protein, 1 kg
+35	Avocado, dozen
+36	Corn tortillas, pound
+37	Pasta, dry, two pounds
+43	Ground pork, pound
+51	Cantaloupe, dozen
+52	Cottage cheese
+70	Banana, bunch 6
+72	Sweet potato, bag
+75	Zucchini, 10
+76	Celeriac, 1 kg
+77	Turnip, 1 pound
+79	Beets, 1 pound
+82	Beets, 1 pound
+83	Carrots
+87	Avocado, 1 pound
+90	Avocado, 1 pound
+91	Parsnip, 1 kg
+92	Yam, 1 kg
+93	Mushrooms, 800g
+94	Canned corn, 1 tin
+104	Green peas, 1 pound
+118	Frozen blueberries, 2100 g
+119	Cocktail fruits, tin
+129	Radish, large bunch
 130	Kimchi, 400 g
+147	Lettuce, 1 head
+150	Bean sprouts, 1 kg
 
