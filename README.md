@@ -1,5 +1,6 @@
 # ENSF-409-Project-Food-Bank
 Group 33: Jaxon, Xian, Aryan, Aarushi
+
 Winter 2022 @ University of Calgary
 
 This is a Java application for a fictional food bank that reads an inventory from a SQL database and retrieves food items based on user input.
