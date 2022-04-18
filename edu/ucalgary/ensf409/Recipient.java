@@ -1,5 +1,9 @@
 
-
+/**
+* @author  Xian, Jaxon, Aarushi, Aryan
+* @version 1.5
+* @since   2022-04-17
+*/
 package edu.ucalgary.ensf409;
 
 import java.util.Arrays;
@@ -15,9 +19,15 @@ public class Recipient {
     private AccessFoodInventory access = new AccessFoodInventory("jdbc:mysql://localhost/food_inventory", "student",
             "ensf");
 
+    /**
+     * Constructor reads recipient's daily food needs from the database.
+     * Parses these values into integers and sets them equal to the attributes.
+     * 
+     * @param recipientID
+     */
     public Recipient(int recipientID) {
         if (recipientID > 4 || recipientID < 1) {
-            throw new IllegalArgumentException("Recipient does not exist. Please enter another value");
+            throw new IllegalArgumentException("Recipient does not exist. Please enter 1,2,3 or 4.");
         }
         this.CLIENTID = recipientID;
         access.initializeConnection();
@@ -32,6 +42,12 @@ public class Recipient {
         access.close();
         System.out.println(Arrays.toString(tmp));
     }
+
+    /**
+     * Getters return recipient's ID, type and daily food needs.
+     * 
+     * @return
+     */
 
     public int getClientID() {
         return this.CLIENTID;

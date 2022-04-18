@@ -1,3 +1,9 @@
+/**
+* @author  Xian, Jaxon, Aarushi, Aryan
+* @version 1.4
+* @since   2022-04-17
+*/
+
 package edu.ucalgary.ensf409;
 
 import org.junit.Test;
@@ -6,13 +12,14 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 
-
 public class HamperTest {
     Hamper testHamper = new Hamper();
     ArrayList<Recipient> expectedRecipients = new ArrayList<Recipient>();
     ArrayList<Food> expectedFoods = new ArrayList<Food>();
 
-    // Testing constructor for Hamper
+    /**
+     * Checking Hamper constructor.
+     */
     @Test
     public void testHamper() {
         Hamper actualHamper = new Hamper();
@@ -21,21 +28,30 @@ public class HamperTest {
         assertEquals("Hamper Constructor did not initialize Recipients properly",
                 expectedFoods, actualHamper.getFoods());
     }
-    // Testing that getRecipients returns correct recipients
+
+    /**
+     * Checking getRecipients() returns correct recipients.
+     */
+
     @Test
     public void testGetRecipients() {
         expectedRecipients.clear();
         expectedRecipients.add(new Recipient(1));
         expectedRecipients.add(new Recipient(2));
-        String expectedFinalStr = expectedRecipients.get(0).getClientType() + " " + expectedRecipients.get(1).getClientType();
+        String expectedFinalStr = expectedRecipients.get(0).getClientType() + " "
+                + expectedRecipients.get(1).getClientType();
         Hamper actualHamper = new Hamper();
         actualHamper.addNewRecipient(1);
         actualHamper.addNewRecipient(2);
-        String finalStr = actualHamper.getRecipients().get(0).getClientType() + " " + actualHamper.getRecipients().get(1).getClientType();
+        String finalStr = actualHamper.getRecipients().get(0).getClientType() + " "
+                + actualHamper.getRecipients().get(1).getClientType();
         assertEquals("getRecipients() did not return correct list",
                 expectedFinalStr, finalStr);
     }
-    // Testing that getFoods returns correct foods
+
+    /**
+     * Checking getFoods() returns correct foods.
+     */
     @Test
     public void testGetFoods() {
         expectedFoods.clear();
@@ -45,7 +61,11 @@ public class HamperTest {
         assertEquals("getFoods() did not return correct list",
                 expectedFoods, actualHamper.getFoods());
     }
-    // Testing that setRecipients correctly sets array list of recipients
+
+    /**
+     * Checking setRecipients() correctly sets ArrayList of recipients.
+     */
+
     @Test
     public void testSetRecipients() {
         expectedRecipients.clear();
@@ -56,7 +76,11 @@ public class HamperTest {
         assertEquals("setRecipients() did not store correct list",
                 expectedRecipients, actualHamper.getRecipients());
     }
-    // Testing that setFoods correctly sets array list of foods
+
+    /**
+     * Checking setFoods() correctly sets array list of foods.
+     */
+
     @Test
     public void testSetFoods() {
         expectedFoods.clear();
@@ -66,21 +90,30 @@ public class HamperTest {
         assertEquals("setFoods() did not store correct list",
                 expectedFoods, actualHamper.getFoods());
     }
-    // Testing that addNewRecipient correctly adds a recipient to the array list
+
+    /**
+     * Checking addNewRecipient() correctly adds a recipient to the ArrayList.
+     */
     @Test
     public void testAddNewRecipient() {
         expectedRecipients.clear();
         expectedRecipients.add(new Recipient(1));
         expectedRecipients.add(new Recipient(2));
-        String expectedFinalStr = expectedRecipients.get(0).getClientType() + " " + expectedRecipients.get(1).getClientType();
+        String expectedFinalStr = expectedRecipients.get(0).getClientType() + " "
+                + expectedRecipients.get(1).getClientType();
         Hamper actualHamper = new Hamper();
         actualHamper.addNewRecipient(1);
         actualHamper.addNewRecipient(2);
-        String finalStr = actualHamper.getRecipients().get(0).getClientType() + " " + actualHamper.getRecipients().get(1).getClientType();
+        String finalStr = actualHamper.getRecipients().get(0).getClientType() + " "
+                + actualHamper.getRecipients().get(1).getClientType();
         assertEquals("addNewRecipient() did not add a new recipient properly",
                 expectedFinalStr, finalStr);
     }
-    // Testing that foodsToString correctly converts the array list to a formatted string
+
+    /**
+     * Checking foodsToString() correctly converts the ArrayList to a formatted
+     * string.
+     */
     @Test
     public void testFoodsToString() {
         String expectedOutput = "34\tAvocado, dozen\n35\tAvocado, dozen\n";
@@ -93,7 +126,11 @@ public class HamperTest {
                 expectedOutput, actualHamper.foodsToString());
 
     }
-    // Testing that recipientsToString correctly converts the array list to a formatted string
+
+    /**
+     * Checking recipientsToString() correctly converts the ArrayList to a formatted
+     * string.
+     */
     @Test
     public void testRecipientsToString() {
         String expectedOutput = "1 Adult Female, 2 Child under 8";
@@ -104,6 +141,5 @@ public class HamperTest {
         assertEquals("recipientsToString() did not return correctly formatted string",
                 expectedOutput, actualHamper.recipientsToString());
     }
-
 
 }

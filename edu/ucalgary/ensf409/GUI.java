@@ -1,10 +1,15 @@
+/**
+* @author  Xian, Jaxon, Aarushi, Aryan
+* @version 1.5
+* @since   2022-04-17
+*/
+
 package edu.ucalgary.ensf409;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
-
 
 public class GUI extends JFrame implements ActionListener, MouseListener {
 
@@ -26,19 +31,19 @@ public class GUI extends JFrame implements ActionListener, MouseListener {
     private JTextField childOverEightInput;
     private JTextField childUnderEightInput;
 
-    public GUI(){
+    public GUI() {
         super("Order Creation");
         setupGUI();
         setSize(1000, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    public void setupGUI(){
+    public void setupGUI() {
         instructions = new JLabel("<html>To add a new Hamper, " +
-        "fill out the amount of each recipient for the hamper below, " + 
-        "then press \"Create New Hamper\" to add the hamper " + 
-        "to the order.<br>When you are finished, click \"Attempt To Create Order and Order Form " + 
-        "to attempt to complete the order.<br>You can terminate the program at any time by closing the window.</html>");
+                "enter the number of each recipient for the hamper below. " +
+                "Then press \"Create New Hamper\" to add the hamper " +
+                "to the order.<br>When you are finished, click \"Attempt To Create Order and Order Form\" " +
+                "to attempt to complete the order.<br>You can terminate the program at any time by closing the window.</html>");
         maleLabel = new JLabel("Number of Male Recipients: ");
         femaleLabel = new JLabel("Number of Female Recipients: ");
         childOverEightLabel = new JLabel("Number of Children Over Eight Recipients: ");
@@ -87,56 +92,58 @@ public class GUI extends JFrame implements ActionListener, MouseListener {
 
     public void actionPerformed(ActionEvent event) {
         String command = event.getActionCommand();
-        if(!validInput()){
-            JOptionPane.showMessageDialog(this, "Input to text boxes must be positive integers");
+        if (!validInput()) {
+            JOptionPane.showMessageDialog(this,
+                    "Number for a recipient must be a positive integer. Enter 0 for no such recipient.");
             return;
         }
-        if(command.equals("Create New Hamper")){
+        // creates hamper based on user input
+        if (command.equals("Create New Hamper")) {
             numberMale = Integer.parseInt(maleInput.getText());
             numberFemale = Integer.parseInt(femaleInput.getText());
             numberChildOverEight = Integer.parseInt(childOverEightInput.getText());
             numberChildUnderEight = Integer.parseInt(childUnderEightInput.getText());
             Hamper hamper = new Hamper();
-            for (int i = 0; i < numberMale; i++){
+            for (int i = 0; i < numberMale; i++) {
                 hamper.addNewRecipient(1);
             }
-            for (int i = 0; i < numberFemale; i++){
+            for (int i = 0; i < numberFemale; i++) {
                 hamper.addNewRecipient(2);
             }
-            for (int i = 0; i < numberChildOverEight; i++){
+            for (int i = 0; i < numberChildOverEight; i++) {
                 hamper.addNewRecipient(3);
             }
-            for (int i = 0; i < numberChildUnderEight; i++){
+            for (int i = 0; i < numberChildUnderEight; i++) {
                 hamper.addNewRecipient(4);
             }
             this.order.addNewHamper(hamper);
             JOptionPane.showMessageDialog(this, "Hamper Successfully Added To Order!");
-        }
-        else {
+        } else {
             AvailableFood availableFood = new AvailableFood();
-            for(Hamper hamper : this.order.getHampers()){
-                order.calculateFoodDistribution(hamper, availableFood);
+            for (Hamper hamper : this.order.getHampers()) {
+                order.calculateFoodDistribution(hamper, availableFood); // calculates food for recipients
             }
-            OrderForm orderForm = new OrderForm(this.order);
-            try{
+            OrderForm orderForm = new OrderForm(this.order); // generates orderform.txt
+            try {
                 orderForm.updateDataBase(this.order);
-            } catch(IOException e){
+            } catch (IOException e) {
                 JOptionPane.showMessageDialog(this, "Unable to Update Database with needed food, order not completed");
                 this.order.getHampers().clear();
-                //throw new OrderCannotBeFilledException();
+                // throw new OrderCannotBeFilledException();
                 return;
             }
-            JOptionPane.showMessageDialog(this, "Order Filled and OrderForm Successfully Created! This program can " + 
-                                        "now be closed or another order can be made.");
+            JOptionPane.showMessageDialog(this, "Order Filled and OrderForm Successfully Created! This program can " +
+                    "now be closed or another order can be made.");
             this.order.getHampers().clear();
         }
     }
 
-    public boolean validInput(){
+    // checking for valid inputs
+    public boolean validInput() {
         boolean valid = true;
         String regex = "^\\d+$";
-        if(!maleInput.getText().matches(regex)||!femaleInput.getText().matches(regex)||
-        !childOverEightInput.getText().matches(regex)||!childUnderEightInput.getText().matches(regex)){
+        if (!maleInput.getText().matches(regex) || !femaleInput.getText().matches(regex) ||
+                !childOverEightInput.getText().matches(regex) || !childUnderEightInput.getText().matches(regex)) {
             valid = false;
         }
         return valid;
@@ -144,44 +151,49 @@ public class GUI extends JFrame implements ActionListener, MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        if(e.getSource().equals(maleInput)){
+        if (e.getSource().equals(maleInput)) {
             maleInput.setText("");
         }
-        if(e.getSource().equals(femaleInput)){
+        if (e.getSource().equals(femaleInput)) {
             femaleInput.setText("");
         }
-        if(e.getSource().equals(childOverEightInput)){
+        if (e.getSource().equals(childOverEightInput)) {
             childOverEightInput.setText("");
         }
-        if(e.getSource().equals(childUnderEightInput)){
+        if (e.getSource().equals(childUnderEightInput)) {
             childUnderEightInput.setText("");
         }
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
-        //Nothing needs to be done
-        
+        // Nothing needs to be done
+
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        //Nothing needs to be done
+        // Nothing needs to be done
     }
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        //Nothing needs to be done
-        
+        // Nothing needs to be done
+
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-        //Nothing needs to be done
-        
+        // Nothing needs to be done
+
     }
 
-    public static void main(String args[]){
+    /**
+     * main() invokes the GUI when compiling and running from the command line
+     * 
+     * @param args
+     */
+    public static void main(String args[]) {
         EventQueue.invokeLater(() -> {
             new GUI().setVisible(true);
         });

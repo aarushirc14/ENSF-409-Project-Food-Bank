@@ -1,9 +1,14 @@
+/**
+* @author  Xian, Jaxon, Aarushi, Aryan
+* @version 1.4
+* @since   2022-04-17
+*/
+
 package edu.ucalgary.ensf409;
 
 import org.junit.*;
 
 import static org.junit.Assert.*;
-
 
 public class FoodTest {
     int EXPECTED_ITEM_ID = 23;
@@ -14,8 +19,13 @@ public class FoodTest {
     int EXPECTED_OTHER = 729;
     int EXPECTED_CALORIES = 900;
 
-    public Food testObject1= new Food(EXPECTED_ITEM_ID);
+    public Food testObject1 = new Food(EXPECTED_ITEM_ID);
 
+    /**
+     * The following tests all check the getters of the Food class.
+     * The constructor is not tested as the getters passing these tests
+     * indicates the constructor is functiong as expected.
+     */
     @Test
     public void testGetItemID() {
         int ACTUAL_ITEM_ID = testObject1.getItemID();
