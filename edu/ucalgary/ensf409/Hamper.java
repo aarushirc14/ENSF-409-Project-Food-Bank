@@ -65,13 +65,25 @@ public class Hamper {
             output += maleCount + " Adult Male";
         }
         if (femaleCount != 0) {
-            output += ", " + femaleCount + " Adult Female";
+            if(maleCount == 0){
+                output += femaleCount + " Adult Female";
+            }else {
+                output += ", " + femaleCount + " Adult Female";
+            }
         }
         if (childOverCount != 0) {
-            output += ", " + childOverCount + " Child over 8";
+            if(femaleCount == 0 && maleCount == 0) {
+                output += childOverCount + " Child over 8";
+            }else{
+                output += ", " + childOverCount + " Child over 8";
+            }
         }
         if (childUnderCount != 0) {
-            output += ", " + childUnderCount + " Child under 8";
+            if(maleCount == 0 && femaleCount == 0 && childOverCount == 0) {
+                output += childUnderCount + " Child under 8";
+            }else{
+                output += ", " + childUnderCount + " Child under 8";
+            }
         }
         return output;
     }
