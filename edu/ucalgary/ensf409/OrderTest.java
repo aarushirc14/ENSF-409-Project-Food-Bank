@@ -1,3 +1,4 @@
+
 package edu.ucalgary.ensf409;
 import org.junit.Test;
 
@@ -13,7 +14,7 @@ public class OrderTest {
     public void testOrder(){
         Order actualOrder=new Order();
         assertEquals("Order constructor did not initialize hampers properly",
-        expectedHamper,actualOrder.getHampers());
+                expectedHamper,actualOrder.getHampers());
 
     }
     @Test
@@ -21,8 +22,8 @@ public class OrderTest {
         expectedHamper.clear();
         Hamper actualHamper=new Hamper();
         expectedRecipients.clear();
-        expectedRecipients.add(new Recipient(0));
         expectedRecipients.add(new Recipient(1));
+        expectedRecipients.add(new Recipient(2));
         expectedFoods.clear();
         expectedFoods.add(new Food(0023));
         actualHamper.setFoods(expectedFoods);
@@ -31,17 +32,17 @@ public class OrderTest {
         expectedHamper.add(actualHamper);
         actual.addNewHamper(actualHamper);
         assertEquals("addNewHamper() does not add hamper properly",
-        expectedHamper,actual.getHampers());
+                expectedHamper,actual.getHampers());
 
     }
     @Test
     public void testGetHampers(){
-         expectedHamper.clear();
+        expectedHamper.clear();
         ArrayList<Hamper> actualHampers = new ArrayList<Hamper>();
         Hamper actualHamper=new Hamper();
         expectedRecipients.clear();
-        expectedRecipients.add(new Recipient(0));
         expectedRecipients.add(new Recipient(1));
+        expectedRecipients.add(new Recipient(2));
         expectedFoods.clear();
         expectedFoods.add(new Food(0023));
         actualHamper.setFoods(expectedFoods);
@@ -51,8 +52,8 @@ public class OrderTest {
         expectedHamper.add(actualHamper);
         actual.setHampers(actualHampers);
         assertEquals("getHampers() does not return hampers properly",
-        expectedHamper,actual.getHampers());
-        
+                expectedHamper,actual.getHampers());
+
 
     }
     @Test
@@ -61,16 +62,26 @@ public class OrderTest {
         Order actual =new Order();
         actual.setOrderFormCreated(testStatus);
         assertEquals("setOrderFormCreated() does not set Order Form Status properly",
-        testStatus,actual.getOrderFormCreated());
+                testStatus,actual.getOrderFormCreated());
 
     }
+
     @Test
     public void testCalculateFoodDistribution(){
-        expectedFoods.clear();
-        Food g= new Food(0023);
-        expectedFoods.add(g);
-         Order actual =new Order();
-        actual.calculateFoodDistribution(testStatus);
+
+        Order actual =new Order();
+        Hamper testRealVal = new Hamper();
+        ArrayList<Food> tmpArr = new ArrayList<Food>();
+        tmpArr.add(new Food(3));
+        testRealVal.setFoods(tmpArr);
+        Recipient testRecipientVal = new Recipient(4);
+        ArrayList<Recipient> fullList = new ArrayList<Recipient>();
+        fullList.add(testRecipientVal);
+        testRealVal.setRecipients(fullList);
+        AvailableFood allAvail = new AvailableFood();
+        actual.calculateFoodDistribution(testRealVal, allAvail);
+
+        assertEquals("Food distribution was not calculated", 163, testRealVal.getFoods().get(16).getItemID());
     }
 
 }
