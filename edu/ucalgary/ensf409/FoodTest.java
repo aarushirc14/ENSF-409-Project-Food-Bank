@@ -3,17 +3,16 @@ package edu.ucalgary.ensf409;
 import org.junit.*;
 
 import static org.junit.Assert.*;
-import java.io.*;
-import java.util.*;
+
 
 public class FoodTest {
-    int EXPECTED_ITEM_ID = 0023;
-    String EXPECTED_NAME = "Tomato Sauce, jar";
+    int EXPECTED_ITEM_ID = 23;
+    String EXPECTED_NAME = "Tuna, six small cans";
     int EXPECTED_GRAIN_CONTENT = 0;
-    int EXPECTED_FV_CONTENT = 80;
-    int EXPECTED_PRO_CONTENT = 10;
-    int EXPECTED_OTHER = 10;
-    int EXPECTED_CALORIES = 120;
+    int EXPECTED_FV_CONTENT = 0;
+    int EXPECTED_PRO_CONTENT = 171;
+    int EXPECTED_OTHER = 729;
+    int EXPECTED_CALORIES = 900;
 
     public Food testObject1= new Food(EXPECTED_ITEM_ID);
 
