@@ -16,5 +16,6 @@ A video demonstration,"Demo.mp4" is provided.
 
 The following .jar files are required to run this application: mysql-connector-java-8.0.28.jar, 
 hamcrest-core-1.3.jar, junit-4.13.2.jar
+
 We recommend adding these .jar files in a lib folder inside the main project folder. A lib folder with the files is provided in this repository.
 
